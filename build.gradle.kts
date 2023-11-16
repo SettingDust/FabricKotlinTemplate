@@ -21,7 +21,6 @@ val description: String by project.properties
 
 loom {
     splitEnvironmentSourceSets()
-    splitModDependencies = true
 
     mods {
         register(id) {
@@ -63,11 +62,6 @@ spotless {
     kotlin { ktfmt().kotlinlangStyle() }
 
     kotlinGradle { ktfmt().kotlinlangStyle() }
-
-    json {
-        target("src/**/*.json")
-        gson().indentWithSpaces(2)
-    }
 }
 
 val metadata =

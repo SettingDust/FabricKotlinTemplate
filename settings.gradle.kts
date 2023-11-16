@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-plugins { id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0" }
+plugins { id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0" }
 
 dependencyResolutionManagement.versionCatalogs.create("catalog") {
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm

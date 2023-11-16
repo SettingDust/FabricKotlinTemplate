@@ -10,6 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ExampleMixin {
 	@Inject(method = "init", at = @At("HEAD"))
 	private void template$example(CallbackInfo ci) {
-
+		System.out.println("Loaded ExampleMixin");
 	}
 }

@@ -15,8 +15,21 @@ group = "settingdust.template"
 
 version = semver.version
 
-val id by project.properties
-val name by project.properties
+val id: String by project.properties
+val name: String by project.properties
+val description: String by project.properties
+
+loom {
+    splitEnvironmentSourceSets()
+    splitModDependencies = true
+
+    mods {
+        register(id) {
+            sourceSet(sourceSets["main"])
+            sourceSet(sourceSets["client"])
+        }
+    }
+}
 
 repositories {
     maven("https://maven.terraformersmc.com/releases")
@@ -31,10 +44,9 @@ dependencies {
     modImplementation(catalog.fabric.api)
     modImplementation(catalog.fabric.kotlin)
 
-    modImplementation(catalog.modmenu)
+    val modClientImplementation by configurations
+    modClientImplementation(catalog.modmenu)
 }
-
-loom { splitEnvironmentSourceSets() }
 
 kotlin { jvmToolchain(17) }
 
@@ -64,6 +76,7 @@ val metadata =
         "id" to id,
         "name" to name,
         "version" to version,
+        "description" to description,
         "source" to "https://github.com/SettingDust/FabricKotlinTemplate",
         "minecraft" to "~1.20",
         "fabric-loader" to "~0.14",

@@ -13,10 +13,11 @@ plugins {
 
 group = "settingdust.template"
 
-version = semver.version
+version = semver.semVersion.toString()
 
 val id: String by project.properties
 val name: String by project.properties
+val author: String by project.properties
 val description: String by project.properties
 
 loom {
@@ -31,7 +32,11 @@ loom {
 }
 
 repositories {
-    maven("https://maven.terraformersmc.com/releases")
+    maven("https://maven.terraformersmc.com/releases") {
+        content {
+            includeGroup("com.terraformersmc")
+        }
+    }
     mavenCentral()
 }
 
@@ -67,15 +72,16 @@ spotless {
 val metadata =
     mapOf(
         "group" to group,
+        "author" to author,
         "id" to id,
         "name" to name,
         "version" to version,
         "description" to description,
         "source" to "https://github.com/SettingDust/FabricKotlinTemplate",
         "minecraft" to "~1.20",
-        "fabric-loader" to "~0.14",
-        "fabric-kotlin" to ">=1.10",
-        "modmenu" to ">=5"
+        "fabric_loader" to "~0.14",
+        "fabric_kotlin" to ">=1.10",
+        "modmenu" to "*",
     )
 
 tasks {

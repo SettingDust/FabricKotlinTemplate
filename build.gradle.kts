@@ -1,5 +1,7 @@
 plugins {
     idea
+    alias(catalog.plugins.idea.ext)
+
     java
 
     alias(catalog.plugins.spotless)
@@ -11,11 +13,7 @@ group = "settingdust.template"
 
 version = semver.semVersion.toString()
 
-allprojects {
-    repositories {
-        mavenCentral()
-    }
-}
+allprojects { repositories { mavenCentral() } }
 
 subprojects {
     group = rootProject.group
@@ -31,7 +29,23 @@ subprojects {
 spotless {
     java { palantirJavaFormat() }
 
-    kotlin { ktfmt().kotlinlangStyle() }
+    kotlin {
+        target("**/src/**/*.kt")
+        ktfmt().kotlinlangStyle()
+    }
 
-    kotlinGradle { ktfmt().kotlinlangStyle() }
+    kotlinGradle {
+        target("**/*.gradle.kts")
+        ktfmt().kotlinlangStyle()
+    }
 }
+
+// idea.project.settings.runConfigurations {
+//    create("Quilt Client", org.jetbrains.gradle.ext.Gradle::class.java) {
+//        taskNames = listOf(":quilt:runClient")
+//    }
+//
+//    create("Quilt Server", org.jetbrains.gradle.ext.Gradle::class.java) {
+//        taskNames = listOf(":quilt:runServer")
+//    }
+// }

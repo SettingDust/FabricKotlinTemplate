@@ -1,26 +1,14 @@
-plugins {
-    alias(catalog.plugins.quilt.loom)
-}
+import net.fabricmc.loom.task.AbstractRunTask
+
+plugins { alias(catalog.plugins.quilt.loom) }
 
 val id: String by rootProject.properties
 
 loom {
-    mods {
-        register(id) {
-            modFiles.from(project(":mod").tasks.named("remapJar"))
-        }
-    }
-
     runs {
-        named("client") {
-            ideConfigGenerated(true)
-            name("Quilt Client")
-        }
-
-        named("server") {
-            ideConfigGenerated(true)
-            name("Quilt Server")
-        }
+        configureEach { ideConfigGenerated(true) }
+        named("client") { name("Quilt Client") }
+        named("server") { name("Quilt Server") }
     }
 }
 
@@ -28,9 +16,7 @@ repositories {
     maven {
         name = "Quilt"
         url = uri("https://maven.quiltmc.org/repository/release")
-        content {
-            includeGroupAndSubgroups("org.quiltmc")
-        }
+        content { includeGroupAndSubgroups("org.quiltmc") }
     }
 }
 
@@ -40,17 +26,15 @@ dependencies {
 
     modRuntimeOnly(catalog.quilt.loader)
     modRuntimeOnly(catalog.quilt.fabric.api)
-    modRuntimeOnly(catalog.fabric.kotlin) {
-        exclude(module = "fabric-loader")
-    }
+    modRuntimeOnly(catalog.fabric.kotlin) { exclude(module = "fabric-loader") }
 
-    modRuntimeOnly(catalog.modmenu) {
-        exclude(module = "fabric-loader")
-    }
+    modRuntimeOnly(catalog.modmenu) { exclude(module = "fabric-loader") }
+
+    runtimeOnly(project(":mod")) { isTransitive = false }
 }
 
 tasks {
-    ideaSyncTask {
-        enabled = true
-    }
+    withType<AbstractRunTask> { dependsOn(":mod:remapJar") }
+
+    ideaSyncTask { enabled = true }
 }

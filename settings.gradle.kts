@@ -3,9 +3,7 @@ pluginManagement {
         maven {
             name = "Quilt"
             url = uri("https://maven.quiltmc.org/repository/release")
-            content {
-                includeGroupAndSubgroups("org.quiltmc")
-            }
+            content { includeGroupAndSubgroups("org.quiltmc") }
         }
         maven("https://maven.fabricmc.net/") { name = "Fabric" }
         mavenCentral()
@@ -14,6 +12,9 @@ pluginManagement {
 }
 
 dependencyResolutionManagement.versionCatalogs.create("catalog") {
+    // https://plugins.gradle.org/plugin/org.jetbrains.gradle.plugin.idea-ext
+    plugin("idea-ext", "org.jetbrains.gradle.plugin.idea-ext").version("1.1.7")
+
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
     val kotlin = "1.9.20"
     version("kotlin", kotlin)
@@ -42,29 +43,32 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     // https://modrinth.com/mod/fabric-language-kotlin/versions
     library(
-        "fabric-kotlin",
-        "net.fabricmc",
-        "fabric-language-kotlin",
-    )
+            "fabric-kotlin",
+            "net.fabricmc",
+            "fabric-language-kotlin",
+        )
         .version("1.10.13+kotlin.$kotlin")
 
     library("modmenu", "com.terraformersmc", "modmenu").version("7.2.2")
 
     // Quilt
     // https://github.com/QuiltMC/quilt-loom
-    plugin("quilt-loom", "org.quiltmc.loom").version("1.4.+")
+    // Using 1.2 for https://github.com/QuiltMC/quilt-loom/issues/38
+    plugin("quilt-loom", "org.quiltmc.loom").version("1.2.+")
 
     library(
-        "quilt-loader",
-        "org.quiltmc",
-        "quilt-loader",
-    ).version("0.22.0-beta.1")
+            "quilt-loader",
+            "org.quiltmc",
+            "quilt-loader",
+        )
+        .version("0.22.0-beta.1")
 
     library(
-        "quilt-fabric-api",
-        "org.quiltmc.quilted-fabric-api",
-        "quilted-fabric-api",
-    ).version("7.4.0+0.90.0-$minecraft")
+            "quilt-fabric-api",
+            "org.quiltmc.quilted-fabric-api",
+            "quilted-fabric-api",
+        )
+        .version("7.4.0+0.90.0-$minecraft")
 }
 
 plugins {
@@ -103,4 +107,5 @@ val name: String by settings
 rootProject.name = name
 
 include("mod")
+
 include("quilt")

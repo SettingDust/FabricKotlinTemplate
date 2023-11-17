@@ -21,15 +21,9 @@ loom {
     }
 
     runs {
-        named("client") {
-            ideConfigGenerated(true)
-            name("Fabric Client")
-        }
-
-        named("server") {
-            ideConfigGenerated(true)
-            name("Fabric Server")
-        }
+        configureEach { ideConfigGenerated(true) }
+        named("client") { name("Fabric Client") }
+        named("server") { name("Fabric Server") }
     }
 }
 
@@ -77,7 +71,5 @@ tasks {
 
     jar { from("LICENSE") }
 
-    ideaSyncTask {
-        enabled = true
-    }
+    ideaSyncTask { enabled = true }
 }

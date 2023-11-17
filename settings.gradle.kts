@@ -1,13 +1,19 @@
 pluginManagement {
     repositories {
-        maven {
-            name = "Quilt"
-            url = uri("https://maven.quiltmc.org/repository/release")
-            content { includeGroupAndSubgroups("org.quiltmc") }
-        }
-        maven("https://maven.fabricmc.net/") { name = "Fabric" }
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.fabricmc.net/") { name = "Fabric" }
+        maven("https://maven.quiltmc.org/repository/release") { name = "Quilt" }
+        maven("https://maven.minecraftforge.net/") { name = "Forge" }
+        maven("https://repo.spongepowered.org/repository/maven-public/") { name = "Sponge" }
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "org.spongepowered.mixin") {
+                useModule("org.spongepowered:mixingradle:${requested.version}")
+            }
+        }
     }
 }
 
@@ -51,7 +57,11 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     library("modmenu", "com.terraformersmc", "modmenu").version("7.2.2")
 
-    // Quilt
+    /**
+     * ***********
+     * Quilt
+     * ************
+     */
     // https://github.com/QuiltMC/quilt-loom
     // Using 1.2 for https://github.com/QuiltMC/quilt-loom/issues/38
     plugin("quilt-loom", "org.quiltmc.loom").version("1.2.+")
@@ -69,6 +79,19 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
             "quilted-fabric-api",
         )
         .version("7.4.0+0.90.0-$minecraft")
+
+    /**
+     * ***********
+     * Forge
+     * ************
+     */
+    // https://maven.neoforged.net/#/releases/net/neoforged/gradle/userdev
+    plugin("forge-gradle", "net.minecraftforge.gradle").version("6.+")
+    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.1.3")
+
+    plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
+
+    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.24+$minecraft")
 }
 
 plugins {
@@ -80,10 +103,12 @@ plugins {
 gitHooks {
     preCommit {
         from {
+            //             git diff --cached --name-only --diff-filter=ACMR | while read -r a; do
+            // echo ${'$'}(readlink -f ${"$"}a); ./gradlew spotlessApply -q
+            // -PspotlessIdeHook="${'$'}(readlink -f ${"$"}a)" </dev/null; done
             """
             export JAVA_HOME="${System.getProperty("java.home")}"
-            git diff --cached --name-only --diff-filter=ACMR | while read -r a; do echo ${'$'}(readlink -f ${"$"}a); ./gradlew spotlessApply -q -PspotlessIdeHook="${'$'}(readlink -f ${"$"}a)" </dev/null; done
-            ./gradlew spotlessCheck
+            ./gradlew spotlessApply spotlessCheck
             """
                 .trimIndent()
         }
@@ -109,3 +134,5 @@ rootProject.name = name
 include("mod")
 
 include("quilt")
+
+include("forge")

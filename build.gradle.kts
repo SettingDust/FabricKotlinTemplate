@@ -2,8 +2,6 @@ plugins {
     idea
     alias(catalog.plugins.idea.ext)
 
-    java
-
     alias(catalog.plugins.spotless)
 
     alias(catalog.plugins.semver)
@@ -27,25 +25,13 @@ subprojects {
 }
 
 spotless {
-    java { palantirJavaFormat() }
-
-    kotlin {
-        target("**/src/**/*.kt")
-        ktfmt().kotlinlangStyle()
+    java {
+        target("*/src/**/*.java")
+        palantirJavaFormat()
     }
 
-    kotlinGradle {
-        target("**/*.gradle.kts")
+    kotlin {
+        target("*/src/**/*.kt", "*/*.gradle.kts", "*.gradle.kts")
         ktfmt().kotlinlangStyle()
     }
 }
-
-// idea.project.settings.runConfigurations {
-//    create("Quilt Client", org.jetbrains.gradle.ext.Gradle::class.java) {
-//        taskNames = listOf(":quilt:runClient")
-//    }
-//
-//    create("Quilt Server", org.jetbrains.gradle.ext.Gradle::class.java) {
-//        taskNames = listOf(":quilt:runServer")
-//    }
-// }

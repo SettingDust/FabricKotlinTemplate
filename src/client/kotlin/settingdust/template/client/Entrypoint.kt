@@ -4,6 +4,4 @@ import com.terraformersmc.modmenu.api.ModMenuApi
 
 fun init() {}
 
-object ModMenuEntrypoint : ModMenuApi {
-
-}
+object ModMenuEntrypoint : ModMenuApi {}

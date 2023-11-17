@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TitleScreen.class)
 public class ExampleMixin {
-	@Inject(method = "init", at = @At("HEAD"))
-	private void template$example(CallbackInfo ci) {
-		System.out.println("Loaded ExampleMixin");
-	}
+    @Inject(method = "init", at = @At("HEAD"))
+    private void template$example(CallbackInfo ci) {
+        System.out.println("Loaded ExampleMixin");
+    }
 }

@@ -6,7 +6,36 @@ pluginManagement {
     }
 }
 
-plugins { id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0" }
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
+    // https://github.com/DanySK/gradle-pre-commit-git-hooks
+    id("org.danilopianini.gradle-pre-commit-git-hooks") version "1.1.14"
+}
+
+gitHooks {
+    preCommit {
+        from {
+            """
+            export JAVA_HOME="${System.getProperty("java.home")}"
+            git diff --cached --name-only --diff-filter=ACMR | while read -r a; do echo ${'$'}(readlink -f ${"$"}a); ./gradlew spotlessApply -q -PspotlessIdeHook="${'$'}(readlink -f ${"$"}a)" </dev/null; done
+            ./gradlew spotlessCheck
+            """
+                .trimIndent()
+        }
+    }
+    commitMsg { conventionalCommits { defaultTypes() } }
+    hook("post-commit") {
+        from {
+            """
+            files="${'$'}(git show --pretty= --name-only | tr '\n' ' ')"
+            git add ${'$'}files
+            git -c core.hooksPath= commit --amend -C HEAD
+            """
+                .trimIndent()
+        }
+    }
+    createHooks(true)
+}
 
 dependencyResolutionManagement.versionCatalogs.create("catalog") {
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
@@ -21,9 +50,6 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     // https://github.com/jmongard/Git.SemVersioning.Gradle
     plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.10.1")
-
-    // https://github.com/nicolasfara/conventional-commits
-    plugin("conventional-commits", "it.nicolasfarabegoli.conventional-commits").version("3.1.3")
 
     // https://fabricmc.net/develop/
     plugin("fabric-loom", "fabric-loom").version("1.4.+")

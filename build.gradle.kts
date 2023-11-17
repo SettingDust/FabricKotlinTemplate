@@ -8,7 +8,6 @@ plugins {
     alias(catalog.plugins.spotless)
 
     alias(catalog.plugins.semver)
-    alias(catalog.plugins.conventional.commits)
 }
 
 group = "settingdust.template"
@@ -33,9 +32,7 @@ loom {
 
 repositories {
     maven("https://maven.terraformersmc.com/releases") {
-        content {
-            includeGroup("com.terraformersmc")
-        }
+        content { includeGroup("com.terraformersmc") }
     }
     mavenCentral()
 }

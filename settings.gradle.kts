@@ -45,7 +45,8 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     library("fabric-loader", "net.fabricmc", "fabric-loader").version("0.14.24")
 
-    library("fabric-api", "net.fabricmc.fabric-api", "fabric-api").version("0.90.7+$minecraft")
+    val fabricApi = "0.90.7"
+    library("fabric-api", "net.fabricmc.fabric-api", "fabric-api").version("$fabricApi+$minecraft")
 
     // https://modrinth.com/mod/fabric-language-kotlin/versions
     library(
@@ -93,7 +94,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.24+$minecraft")
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("0.90.7+1.9.32+$minecraft")
+        .version("$fabricApi+1.9.32+$minecraft")
     library("connector-extras", "maven.modrinth", "connector-extras").version("1.6.0+$minecraft")
 }
 

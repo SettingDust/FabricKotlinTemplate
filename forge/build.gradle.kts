@@ -36,6 +36,13 @@ minecraft {
 }
 
 repositories {
+    exclusiveContent {
+        forRepository { maven("https://api.modrinth.com/maven") { name = "Modrinth" } }
+        forRepositories(
+            fg.repository
+        ) // Only add this if you're using ForgeGradle, otherwise remove this line
+        filter { includeGroup("maven.modrinth") }
+    }
     maven("https://maven.su5ed.dev/releases") { name = "Sinytra" }
     maven("https://maven.fabricmc.net/") { name = "Fabric" }
 }
@@ -43,7 +50,9 @@ repositories {
 dependencies {
     minecraft(catalog.forge)
 
-    runtimeOnly(fg.deobf(catalog.connector.get()))
+    runtimeOnly(fg.deobf(catalog.connector.asProvider().get()))
+    runtimeOnly(fg.deobf(catalog.connector.extras.get()))
+    runtimeOnly(fg.deobf(catalog.forgified.fabric.api.get()))
     runtimeOnly(catalog.fabric.kotlin) { isTransitive = false }
     runtimeOnly(project(":mod")) { isTransitive = false }
 }

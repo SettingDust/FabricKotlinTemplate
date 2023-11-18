@@ -58,7 +58,7 @@ val metadata =
         "description" to description,
         "source" to "https://github.com/SettingDust/FabricKotlinTemplate",
         "minecraft" to "~1.20",
-        "fabric_loader" to "~0.14",
+        "fabric_loader" to ">=0.12",
         "fabric_kotlin" to ">=1.10",
         "modmenu" to "*",
     )

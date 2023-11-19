@@ -1,3 +1,5 @@
+import net.minecraftforge.gradle.common.util.MavenArtifactDownloader
+
 plugins {
     alias(catalog.plugins.forge.gradle)
     alias(catalog.plugins.mixin.gradle)
@@ -26,6 +28,19 @@ minecraft {
             property("forge.logging.console.level", "debug")
         }
 
+        val CLEAN_ARTIFACT = "net.minecraft:joined:%s:srg"
+        afterEvaluate {
+            val mcpVersion = project.extra["MCP_VERSION"]
+            val cleanArtifactJar =
+                MavenArtifactDownloader.generate(
+                    project,
+                    CLEAN_ARTIFACT.format(mcpVersion),
+                    true,
+                )
+                    ?: throw RuntimeException("Cannot find clean minecraft artifact")
+            configureEach { property("connector.clean.path", cleanArtifactJar) }
+        }
+
         create("client") { ideaModule = "FabricKotlinTemplate.forge.main" }
 
         create("server") {
@@ -39,7 +54,7 @@ repositories {
     exclusiveContent {
         forRepository { maven("https://api.modrinth.com/maven") { name = "Modrinth" } }
         forRepositories(
-            fg.repository
+            fg.repository,
         ) // Only add this if you're using ForgeGradle, otherwise remove this line
         filter { includeGroup("maven.modrinth") }
     }

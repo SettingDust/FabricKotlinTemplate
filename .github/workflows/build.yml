@@ -24,3 +24,8 @@ jobs:
 
       - name: Dependencies submission
         uses: mikepenz/gradle-dependency-submission@v0.9.1
+        with:
+          gradle-build-module: |-
+            :mod
+            :forge
+            :quilt

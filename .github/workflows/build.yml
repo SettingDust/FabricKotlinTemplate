@@ -29,3 +29,5 @@ jobs:
     steps:
       - name: Perform dependency review
         uses: actions/dependency-review-action@v3
+        with:
+         base-ref: refs/heads/main

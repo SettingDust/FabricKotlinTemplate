@@ -23,11 +23,3 @@ jobs:
 
       - name: Execute Gradle build
         run: ./gradlew build
-  dependency-review:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Perform dependency review
-        uses: actions/dependency-review-action@v3
-        with:
-         base-ref: refs/heads/main

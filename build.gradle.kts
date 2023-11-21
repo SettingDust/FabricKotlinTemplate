@@ -1,3 +1,6 @@
+import org.jetbrains.gradle.ext.settings
+import org.jetbrains.gradle.ext.taskTriggers
+
 plugins {
     idea
     alias(catalog.plugins.idea.ext)
@@ -35,3 +38,5 @@ spotless {
         ktfmt().kotlinlangStyle()
     }
 }
+
+idea.project.settings.taskTriggers { afterSync(":forge:genIntellijRuns") }

@@ -18,14 +18,14 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+        with:
+          dependency-graph: generate-and-submit
 
       - name: Execute Gradle build
         run: ./gradlew build
-
-      - name: Dependencies submission
-        uses: mikepenz/gradle-dependency-submission@v0.9.1
-        with:
-          gradle-build-module: |-
-            :mod
-            :forge
-            :quilt
+  dependency-review:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Perform dependency review
+        uses: actions/dependency-review-action@v3

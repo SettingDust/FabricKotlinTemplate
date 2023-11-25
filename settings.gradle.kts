@@ -88,20 +88,20 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
      */
     // https://maven.neoforged.net/#/releases/net/neoforged/gradle/userdev
     plugin("forge-gradle", "net.minecraftforge.gradle").version("6.+")
-    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.2.0")
+    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.2.6")
 
     plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
 
     library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.25+$minecraft")
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("$fabricApi+1.10.1+$minecraft")
+        .version("$fabricApi+1.10.2+$minecraft")
     library("connector-extras", "maven.modrinth", "connector-extras").version("1.6.1+$minecraft")
 }
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
     // https://github.com/DanySK/gradle-pre-commit-git-hooks
-    id("org.danilopianini.gradle-pre-commit-git-hooks") version "1.1.14"
+    id("org.danilopianini.gradle-pre-commit-git-hooks") version "1.1.15"
 }
 
 gitHooks {

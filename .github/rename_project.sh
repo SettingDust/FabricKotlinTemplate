@@ -57,3 +57,5 @@ mv mod/src/main/kotlin/settingdust/template "mod/src/main/kotlin/$group_path"
 mv mod/src/main/resources/fabric-kotlin-template.mixins.json "mod/src/main/resources/$name_snake.mixins.json"
 # This command runs only once on GHA!
 rm -rf .github/template.yml
+rm -rf .github/rename_project.sh
+rm -rf .github/workflows/rename_project.yml

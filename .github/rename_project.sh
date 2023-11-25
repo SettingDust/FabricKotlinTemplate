@@ -48,12 +48,12 @@ do
     echo "Mapped $filename"
 done
 
-mv src/client/java/settingdust/template "src/client/java/$group_path"
-mv src/client/kotlin/settingdust/template "src/client/kotlin/$group_path"
-mv src/client/resources/assets/fabric-kotlin-template "src/client/resources/assets/$name_snake"
-mv src/client/resources/fabric-kotlin-template.client.mixins.json "src/client/resources/$name_snake.client.mixins.json"
-mv src/main/java/settingdust/template "src/main/java/$group_path"
-mv src/main/kotlin/settingdust/template "src/main/kotlin/$group_path"
-mv src/main/resources/fabric-kotlin-template.mixins.json "src/main/resources/$name_snake.mixins.json"
+mv mod/src/client/java/settingdust/template "mod/src/client/java/$group_path"
+mv mod/src/client/kotlin/settingdust/template "mod/src/client/kotlin/$group_path"
+mv mod/src/client/resources/assets/fabric-kotlin-template "mod/src/client/resources/assets/$name_snake"
+mv mod/src/client/resources/fabric-kotlin-template.client.mixins.json "mod/src/client/resources/$name_snake.client.mixins.json"
+mv mod/src/main/java/settingdust/template "mod/src/main/java/$group_path"
+mv mod/src/main/kotlin/settingdust/template "mod/src/main/kotlin/$group_path"
+mv mod/src/main/resources/fabric-kotlin-template.mixins.json "mod/src/main/resources/$name_snake.mixins.json"
 # This command runs only once on GHA!
 rm -rf .github/template.yml

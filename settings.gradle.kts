@@ -92,10 +92,10 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
 
-    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.25+$minecraft")
+    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.28+$minecraft")
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("$fabricApi+1.10.2+$minecraft")
-    library("connector-extras", "maven.modrinth", "connector-extras").version("1.6.1+$minecraft")
+        .version("$fabricApi+1.10.3+$minecraft")
+    library("connector-extras", "maven.modrinth", "connector-extras").version("1.7.0+$minecraft")
 }
 
 plugins {

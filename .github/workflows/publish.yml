@@ -58,6 +58,8 @@ jobs:
           game-versions: |
             [1.19.4, 1.20.1]
 
+          game-version-filter: releases
+
           dependencies: |
             fabric-language-kotlin
             connector{curseforge:890127}

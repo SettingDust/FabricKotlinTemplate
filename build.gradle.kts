@@ -30,12 +30,12 @@ subprojects {
 spotless {
     java {
         target("*/src/**/*.java")
-        palantirJavaFormat()
+        palantirJavaFormat("2.29.0")
     }
 
     kotlin {
         target("*/src/**/*.kt", "*/*.gradle.kts", "*.gradle.kts")
-        ktfmt().kotlinlangStyle()
+        ktfmt("0.46").kotlinlangStyle()
     }
 }
 

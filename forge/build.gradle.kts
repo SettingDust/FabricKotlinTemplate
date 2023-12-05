@@ -36,8 +36,7 @@ minecraft {
                     project,
                     CLEAN_ARTIFACT.format(mcpVersion),
                     true,
-                )
-                    ?: throw RuntimeException("Cannot find clean minecraft artifact")
+                ) ?: throw RuntimeException("Cannot find clean minecraft artifact")
             configureEach { property("connector.clean.path", cleanArtifactJar) }
         }
 

@@ -35,7 +35,7 @@ jobs:
       - name: Upload jar
         uses: Kir-Antipov/mc-publish@v3.3
         with:
-          changelog-file: CHANGELOG.md
+          changelog: ${{ steps.changelog.outputs.changes }}
           # Only include this section if you wish to publish
           # your assets on Modrinth.
           modrinth-id: b313lC4Y

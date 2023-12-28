@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
+
 plugins {
     alias(catalog.plugins.fabric.loom)
 
@@ -9,6 +11,8 @@ val id: String by rootProject.properties
 val name: String by rootProject.properties
 val author: String by rootProject.properties
 val description: String by rootProject.properties
+
+archivesName = name
 
 loom {
     splitEnvironmentSourceSets()

@@ -70,7 +70,7 @@ val metadata =
 tasks {
     processResources {
         inputs.properties(metadata)
-        filesMatching("fabric.mod.json") { expand(metadata) }
+        filesMatching(listOf("fabric.mod.json", "*.mixins.json")) { expand(metadata) }
     }
 
     jar { from("LICENSE") }

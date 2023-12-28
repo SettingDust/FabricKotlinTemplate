@@ -68,7 +68,7 @@ val metadata =
     )
 
 tasks {
-    processResources {
+    withType<ProcessResources> {
         inputs.properties(metadata)
         filesMatching(listOf("fabric.mod.json", "*.mixins.json")) { expand(metadata) }
     }

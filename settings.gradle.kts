@@ -22,7 +22,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("idea-ext", "org.jetbrains.gradle.plugin.idea-ext").version("1.1.7")
 
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
-    val kotlin = "1.9.21"
+    val kotlin = "1.9.22"
     version("kotlin", kotlin)
     plugin("kotlin-jvm", "org.jetbrains.kotlin.jvm").version(kotlin)
     plugin("kotlin-plugin-serialization", "org.jetbrains.kotlin.plugin.serialization")
@@ -45,7 +45,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     library("fabric-loader", "net.fabricmc", "fabric-loader").version("0.15.3")
 
-    val fabricApi = "0.90.7"
+    val fabricApi = "0.91.0"
     library("fabric-api", "net.fabricmc.fabric-api", "fabric-api").version("$fabricApi+$minecraft")
 
     // https://modrinth.com/mod/fabric-language-kotlin/versions
@@ -54,9 +54,9 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
             "net.fabricmc",
             "fabric-language-kotlin",
         )
-        .version("1.10.16+kotlin.$kotlin")
+        .version("1.10.17+kotlin.$kotlin")
 
-    // https://modrinth.com/mod/modmenu/versions?g=1.20.1
+    // https://modrinth.com/mod/modmenu/versions
     library("modmenu", "com.terraformersmc", "modmenu").version("7.2.2")
 
     /**
@@ -76,7 +76,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
         )
         .version("0.23.0-beta.1")
 
-    // https://modrinth.com/mod/qsl/versions?g=1.20.1
+    // https://modrinth.com/mod/qsl/versions
     library(
             "quilt-fabric-api",
             "org.quiltmc.quilted-fabric-api",
@@ -93,18 +93,18 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("forge-gradle", "net.minecraftforge.gradle").version("6.+")
 
     // https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html
-    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.2.18")
+    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.2.19")
 
     // https://github.com/SpongePowered/MixinGradle
     plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
 
     // https://modrinth.com/mod/connector/versions
-    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.31+$minecraft")
+    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.32+$minecraft")
     // https://modrinth.com/mod/forgified-fabric-api/versions
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("$fabricApi+1.10.3+$minecraft")
+        .version("$fabricApi+1.10.4+$minecraft")
     // https://modrinth.com/mod/connector-extras/versions
-    library("connector-extras", "maven.modrinth", "connector-extras").version("1.8.0+$minecraft")
+    library("connector-extras", "maven.modrinth", "connector-extras").version("1.9.0+$minecraft")
 }
 
 plugins {

@@ -63,13 +63,13 @@ jobs:
         if: steps.is_template.outputs.is_template == 'true'
         run: |
           echo "Renaming the project with "
-          echo " -a(author) ${{ env.REPOSITORY_OWNER }}" 
-          echo " -n(name) ${{ env.REPOSITORY_NAME }}"
-          echo " -d ${{ env.REPOSITORY_DESCRIPTION }}" 
+          echo " -a(author) $REPOSITORY_OWNER" 
+          echo " -n(name) $REPOSITORY_NAME"
+          echo " -d $REPOSITORY_DESCRIPTION" 
           .github/rename_project.sh \
-            -a '${{ env.REPOSITORY_OWNER }}' \
-            -n '${{ env.REPOSITORY_NAME }}' \
-            -d '${{ env.REPOSITORY_DESCRIPTION }}'
+            -a "$REPOSITORY_OWNER" \
+            -n "$REPOSITORY_NAME" \
+            -d "$REPOSITORY_DESCRIPTION"
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:

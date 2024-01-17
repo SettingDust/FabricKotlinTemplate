@@ -33,7 +33,7 @@ jobs:
           file_pattern: CHANGELOG.md
 
       - name: Upload jar
-        uses: Kir-Antipov/mc-publish@v3.3
+        uses: Kir-Antipov/mc-publish@v3.3.0
         with:
           changelog: ${{ steps.changelog.outputs.changes }}
           # Only include this section if you wish to publish

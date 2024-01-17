@@ -35,7 +35,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.11.0")
 
     // https://fabricmc.net/develop/
-    plugin("fabric-loom", "fabric-loom").version("1.4.+")
+    plugin("fabric-loom", "fabric-loom").version("1.5.+")
 
     val minecraft = "1.20.1"
     version("minecraft", minecraft)
@@ -102,9 +102,9 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.32+$minecraft")
     // https://modrinth.com/mod/forgified-fabric-api/versions
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("$fabricApi+1.10.4+$minecraft")
+        .version("$fabricApi+1.10.5+$minecraft")
     // https://modrinth.com/mod/connector-extras/versions
-    library("connector-extras", "maven.modrinth", "connector-extras").version("1.9.0+$minecraft")
+    library("connector-extras", "maven.modrinth", "connector-extras").version("1.9.2+$minecraft")
 }
 
 plugins {

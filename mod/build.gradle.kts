@@ -17,6 +17,15 @@ archivesName = name
 loom {
     splitEnvironmentSourceSets()
 
+    mixin {
+        defaultRefmapName = "$id.refmap.json"
+
+        add("main", "$id.refmap.json")
+        add("client", "$id.client.refmap.json")
+    }
+
+    accessWidenerPath = file("src/main/resources/$id.accesswidener")
+
     mods {
         register(id) {
             sourceSet(sourceSets["main"])

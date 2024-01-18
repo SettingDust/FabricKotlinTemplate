@@ -55,7 +55,7 @@ mv mod/src/client/resources/fabric-kotlin-template.client.mixins.json "mod/src/c
 mv mod/src/main/java/settingdust/template "mod/src/main/java/$group_path"
 mv mod/src/main/kotlin/settingdust/template "mod/src/main/kotlin/$group_path"
 mv mod/src/main/resources/fabric-kotlin-template.mixins.json "mod/src/main/resources/$name_snake.mixins.json"
-mv mod/src/main/resources/fabric-kotlin-template.mixins.json "mod/src/main/resources/$name_snake.accesswidener"
+mv mod/src/main/resources/fabric-kotlin-template.accesswidener "mod/src/main/resources/$name_snake.accesswidener"
 # This command runs only once on GHA!
 rm -rf .github/template.yml
 rm -rf .github/rename_project.sh

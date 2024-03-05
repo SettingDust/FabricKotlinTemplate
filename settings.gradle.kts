@@ -32,7 +32,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("spotless", "com.diffplug.spotless").version("6.23.3")
 
     // https://github.com/jmongard/Git.SemVersioning.Gradle
-    plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.11.0")
+    plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.12.5")
 
     // https://fabricmc.net/develop/
     plugin("fabric-loom", "fabric-loom").version("1.5.+")
@@ -43,9 +43,9 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     library("yarn", "net.fabricmc", "yarn").version("$minecraft+build.10")
 
-    library("fabric-loader", "net.fabricmc", "fabric-loader").version("0.15.3")
+    library("fabric-loader", "net.fabricmc", "fabric-loader").version("0.15.7")
 
-    val fabricApi = "0.91.0"
+    val fabricApi = "0.92.0"
     library("fabric-api", "net.fabricmc.fabric-api", "fabric-api").version("$fabricApi+$minecraft")
 
     // https://modrinth.com/mod/fabric-language-kotlin/versions
@@ -54,7 +54,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
             "net.fabricmc",
             "fabric-language-kotlin",
         )
-        .version("1.10.17+kotlin.$kotlin")
+        .version("1.10.18+kotlin.$kotlin")
 
     // https://modrinth.com/mod/modmenu/versions
     library("modmenu", "com.terraformersmc", "modmenu").version("7.2.2")
@@ -74,7 +74,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
             "org.quiltmc",
             "quilt-loader",
         )
-        .version("0.23.0-beta.1")
+        .version("0.24.0-beta.9")
 
     // https://modrinth.com/mod/qsl/versions
     library(
@@ -82,7 +82,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
             "org.quiltmc.quilted-fabric-api",
             "quilted-fabric-api",
         )
-        .version("7.4.0+0.90.0-$minecraft")
+        .version("7.5.0+0.91.0-$minecraft")
 
     /**
      * ***********
@@ -93,18 +93,18 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("forge-gradle", "net.minecraftforge.gradle").version("6.+")
 
     // https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html
-    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.2.19")
+    library("forge", "net.minecraftforge", "forge").version("$minecraft-47.2.20")
 
     // https://github.com/SpongePowered/MixinGradle
     plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
 
     // https://modrinth.com/mod/connector/versions
-    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.32+$minecraft")
+    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.37+$minecraft")
     // https://modrinth.com/mod/forgified-fabric-api/versions
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("$fabricApi+1.10.5+$minecraft")
+        .version("$fabricApi+1.11.3+$minecraft")
     // https://modrinth.com/mod/connector-extras/versions
-    library("connector-extras", "maven.modrinth", "connector-extras").version("1.9.2+$minecraft")
+    library("connector-extras", "maven.modrinth", "connector-extras").version("1.9.3+$minecraft")
 }
 
 plugins {

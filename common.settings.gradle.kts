@@ -32,7 +32,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("spotless", "com.diffplug.spotless").version("6.23.3")
 
     // https://github.com/jmongard/Git.SemVersioning.Gradle
-    plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.12.5")
+    plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.12.6")
 
     // https://fabricmc.net/develop/
     plugin("fabric-loom", "fabric-loom").version("1.5.+")
@@ -54,7 +54,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
         "net.fabricmc",
         "fabric-language-kotlin",
     )
-        .version("1.10.18+kotlin.$kotlin")
+        .version("1.10.19+kotlin.$kotlin")
 
     // https://modrinth.com/mod/modmenu/versions
     library("modmenu", "com.terraformersmc", "modmenu").version("7.2.2")

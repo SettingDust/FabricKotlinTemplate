@@ -1,4 +1,6 @@
-apply(from = "https://github.com/SettingDust/FabricKotlinTemplate/raw/main/common.settings.gradle.kts")
+apply(
+    from = "https://github.com/SettingDust/FabricKotlinTemplate/raw/main/common.settings.gradle.kts"
+)
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"

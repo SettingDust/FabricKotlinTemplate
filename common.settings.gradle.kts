@@ -50,10 +50,10 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     // https://modrinth.com/mod/fabric-language-kotlin/versions
     library(
-        "fabric-kotlin",
-        "net.fabricmc",
-        "fabric-language-kotlin",
-    )
+            "fabric-kotlin",
+            "net.fabricmc",
+            "fabric-language-kotlin",
+        )
         .version("1.10.19+kotlin.$kotlin")
 
     // https://modrinth.com/mod/modmenu/versions
@@ -70,18 +70,18 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
 
     // https://github.com/QuiltMC/quilt-loader/tags
     library(
-        "quilt-loader",
-        "org.quiltmc",
-        "quilt-loader",
-    )
+            "quilt-loader",
+            "org.quiltmc",
+            "quilt-loader",
+        )
         .version("0.24.0-beta.9")
 
     // https://modrinth.com/mod/qsl/versions
     library(
-        "quilt-fabric-api",
-        "org.quiltmc.quilted-fabric-api",
-        "quilted-fabric-api",
-    )
+            "quilt-fabric-api",
+            "org.quiltmc.quilted-fabric-api",
+            "quilted-fabric-api",
+        )
         .version("7.5.0+0.91.0-$minecraft")
 
     /**

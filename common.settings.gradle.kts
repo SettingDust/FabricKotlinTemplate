@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.create
+
 pluginManagement {
     repositories {
         mavenCentral()
@@ -17,12 +19,18 @@ pluginManagement {
     }
 }
 
+val kotlin = "1.9.23"
+val minecraft = "1.20.1"
+
+settings.extra["kotlin"] = kotlin
+
+settings.extra["minecraft"] = minecraft
+
 dependencyResolutionManagement.versionCatalogs.create("catalog") {
     // https://plugins.gradle.org/plugin/org.jetbrains.gradle.plugin.idea-ext
     plugin("idea-ext", "org.jetbrains.gradle.plugin.idea-ext").version("1.1.7")
 
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
-    val kotlin = "1.9.23"
     version("kotlin", kotlin)
     plugin("kotlin-jvm", "org.jetbrains.kotlin.jvm").version(kotlin)
     plugin("kotlin-plugin-serialization", "org.jetbrains.kotlin.plugin.serialization")
@@ -37,7 +45,6 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     // https://fabricmc.net/develop/
     plugin("fabric-loom", "fabric-loom").version("1.5.+")
 
-    val minecraft = "1.20.1"
     version("minecraft", minecraft)
     library("minecraft", "com.mojang", "minecraft").version(minecraft)
 

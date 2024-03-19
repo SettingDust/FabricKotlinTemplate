@@ -28,7 +28,7 @@ settings.extra["minecraft"] = minecraft
 
 dependencyResolutionManagement.versionCatalogs.create("catalog") {
     // https://plugins.gradle.org/plugin/org.jetbrains.gradle.plugin.idea-ext
-    plugin("idea-ext", "org.jetbrains.gradle.plugin.idea-ext").version("1.1.7")
+    plugin("idea-ext", "org.jetbrains.gradle.plugin.idea-ext").version("1.1.8")
 
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
     version("kotlin", kotlin)
@@ -37,7 +37,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
         .version(kotlin)
 
     // https://plugins.gradle.org/plugin/com.diffplug.spotless
-    plugin("spotless", "com.diffplug.spotless").version("6.23.3")
+    plugin("spotless", "com.diffplug.spotless").version("6.25.0")
 
     // https://github.com/jmongard/Git.SemVersioning.Gradle
     plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.12.6")
@@ -81,7 +81,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
             "org.quiltmc",
             "quilt-loader",
         )
-        .version("0.24.0-beta.9")
+        .version("0.24.0")
 
     // https://modrinth.com/mod/qsl/versions
     library(
@@ -106,10 +106,10 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
 
     // https://modrinth.com/mod/connector/versions
-    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.37+$minecraft")
+    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.39+$minecraft")
     // https://modrinth.com/mod/forgified-fabric-api/versions
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
         .version("$fabricApi+1.11.3+$minecraft")
     // https://modrinth.com/mod/connector-extras/versions
-    library("connector-extras", "maven.modrinth", "connector-extras").version("1.9.3+$minecraft")
+    library("connector-extras", "maven.modrinth", "connector-extras").version("1.10.0+$minecraft")
 }

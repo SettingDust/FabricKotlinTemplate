@@ -13,9 +13,7 @@ loom {
 }
 
 repositories {
-    maven {
-        name = "Quilt"
-        url = uri("https://maven.quiltmc.org/repository/release")
+    maven("https://maven.quiltmc.org/repository/release") {
         content { includeGroupAndSubgroups("org.quiltmc") }
     }
 }

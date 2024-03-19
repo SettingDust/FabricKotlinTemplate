@@ -57,8 +57,10 @@ repositories {
         ) // Only add this if you're using ForgeGradle, otherwise remove this line
         filter { includeGroup("maven.modrinth") }
     }
-    maven("https://maven.su5ed.dev/releases") { name = "Sinytra" }
-    maven("https://maven.fabricmc.net/") { name = "Fabric" }
+    maven("https://maven.su5ed.dev/releases") {
+        content { includeGroupAndSubgroups("dev.su5ed.sinytra") }
+    }
+    maven("https://maven.fabricmc.net/") { content { includeGroupAndSubgroups("net.fabricmc") } }
 }
 
 dependencies {

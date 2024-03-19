@@ -24,6 +24,7 @@ subprojects {
         maven("https://maven.terraformersmc.com/releases") {
             content { includeGroup("com.terraformersmc") }
         }
+        maven("https://api.modrinth.com/maven") { content { includeGroup("maven.modrinth") } }
     }
 }
 

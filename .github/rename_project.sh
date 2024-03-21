@@ -60,3 +60,4 @@ mv mod/src/main/resources/fabric-kotlin-template.accesswidener "mod/src/main/res
 rm -rf .github/template.yml
 rm -rf .github/rename_project.sh
 rm -rf .github/workflows/rename_project.yml
+rm -rf common.settings.gradle.kts

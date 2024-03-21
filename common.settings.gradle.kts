@@ -43,7 +43,7 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("semver", "com.github.jmongard.git-semver-plugin").version("0.12.6")
 
     // https://fabricmc.net/develop/
-    plugin("fabric-loom", "fabric-loom").version("1.5.+")
+    plugin("fabric-loom", "fabric-loom").version("1.6.+")
 
     version("minecraft", minecraft)
     library("minecraft", "com.mojang", "minecraft").version(minecraft)

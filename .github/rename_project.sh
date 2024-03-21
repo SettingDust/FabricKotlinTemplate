@@ -31,7 +31,7 @@ echo "Url: $url";
 echo "Renaming project..."
 
 # for filename in $(find . -name "*.*")
-for filename in $(git ls-files -- ':!:.github/workflows*' ':!:.github/rename_project.sh')
+for filename in $(git ls-files -- ':!:.github/workflows*' ':!:.github/rename_project.sh' ':!:settings.gradle.kts')
 do
   echo "sed -i s|$original_author|$author|g $filename"
     sed -i "s|$original_author|$author|g $filename"

@@ -106,10 +106,10 @@ dependencyResolutionManagement.versionCatalogs.create("catalog") {
     plugin("mixin-gradle", "org.spongepowered.mixin").version("0.7-SNAPSHOT")
 
     // https://modrinth.com/mod/connector/versions
-    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.39+$minecraft")
+    library("connector", "dev.su5ed.sinytra", "Connector").version("1.0.0-beta.40+$minecraft")
     // https://modrinth.com/mod/forgified-fabric-api/versions
     library("forgified-fabric-api", "dev.su5ed.sinytra.fabric-api", "fabric-api")
-        .version("$fabricApi+1.11.3+$minecraft")
+        .version("$fabricApi+1.11.5+$minecraft")
     // https://modrinth.com/mod/connector-extras/versions
     library("connector-extras", "maven.modrinth", "connector-extras").version("1.10.0+$minecraft")
 }

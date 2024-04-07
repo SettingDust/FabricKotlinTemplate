@@ -4,6 +4,7 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven2.bai.lol")
         maven("https://maven.fabricmc.net/") { name = "Fabric" }
         maven("https://maven.quiltmc.org/repository/release") { name = "Quilt" }
         maven("https://maven.minecraftforge.net/") { name = "Forge" }
@@ -29,6 +30,9 @@ settings.extra["minecraft"] = minecraft
 dependencyResolutionManagement.versionCatalogs.create("catalog") {
     // https://plugins.gradle.org/plugin/org.jetbrains.gradle.plugin.idea-ext
     plugin("idea-ext", "org.jetbrains.gradle.plugin.idea-ext").version("1.1.8")
+
+    // https://github.com/badasintended/explosion
+    plugin("explosion", "lol.bai.explosion").version("0.1.0")
 
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
     version("kotlin", kotlin)
